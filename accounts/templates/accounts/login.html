@@ -1,0 +1,26 @@
+{% extends "ticketSales/layout.html" %}
+{% block titlepage %} 
+ ورود کاربران {{ concertdetails.Name }}
+{% endblock %}
+
+{% block maincontent %}
+<div class="col-md-12">
+    <div class="col-md-6">
+        <form action="" method="post" class="form">
+            {% csrf_token %}
+            
+            <h3>اطلاعات خود را وارد کنید </h3>
+            <p>{{username}} : {{ errorMessage }}</p>
+            <label class="label-control">نام کاربری</label>
+            <input type="text" id="username" name="username" placeholder="نام کاربری خود را وارد کنید " class="form-control">
+            <label class="label-control">رمز عبور</label>
+            <input type="password" id="password" name="password" placeholder="رمز خود را وارد کنید " class="form-control">
+            <input type="submit" value="ورود" class="btn btn-success">
+        
+        </form>
+    </div>
+</div>
+<div class="col-md-3"></div>
+    
+
+{% endblock %}

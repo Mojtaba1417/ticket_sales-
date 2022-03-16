@@ -1,0 +1,22 @@
+{% extends "ticketSales/layout.html" %}
+{% block titlepage %}
+پروفایل 
+{% endblock %}
+
+{% block maincontent %}
+
+    <div class="row">
+        <div class="col-md-8">
+            
+            <p>نام و نام خانوادگی : {{ profile.user.get_full_name}} </p>
+            <p>جنسیت :{{ profile.get_Gender_display }} </p>
+            <p>مقدار اعتبار: {{profile.credit }} </p>
+        </div>
+        <div class="col-md-4">
+            <img src="{{profile.ProfileImage.url }}" >
+        </div>
+    </div>
+
+
+
+{% endblock %}

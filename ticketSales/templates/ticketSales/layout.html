@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en"  dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سامانه فروش بلیت کنسرت</title>
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'ticketSales/css/bootstrap.css ' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'ticketSales/css/fontawesome.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'ticketSales/css/styles.css' %}">
+    <style>
+        @font-face {
+            font-family:'IranSanse';
+            src: local('IranSanse'),
+                url('{% static "ticketSales/fonts/fa/eot/IRANSansWeb.eot" %}') format('eot'),
+                url('{% static "ticketSales/fonts/fa/ttf/IRANSansWeb.ttf" %}') format('ttf'),
+                url('{% static "ticketSales/fonts/fa/woff/IRANSansWeb.woff" %}') format('woff'),
+                url('{% static "ticketSales/fonts/fa/woff/IRANSansWeb.woff2" %}') format('woff2');
+            }
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="row box">
+            <h1>{% block titlepage %} {% endblock %}</h1>
+            <ul class="btnul">
+                {% if user.is_authenticated %}
+                <li><a class="btn btn-success" href="/accounts/profile">پروفایل</a></li>
+                <li><a class="btn btn-danger" href="/accounts/logout">خروج</a></li>
+                {% else %}
+                <li><a class="btn btn-success" href="/accounts/login">ورود</a></li>
+                <li><a class="btn btn-success" href="/accounts/profileRegister">ثبت نام </a></li>
+                {% endif %}
+                
+                
+
+                <li><a class="btn btn-primary" href="/ticketSales/time/list">مشاهده سانس ها</a></li>
+                
+                <li><a class="btn btn-default" href="/ticketSales/concert/list">صفحه اصلی</a></li>
+                <li><a class="btn btn-danger" href="/ticketSales/location/list">اطلاعات محل</a></li>
+            </ul>
+        </div>
+
+        <div class="row">
+            {% block maincontent %}{% endblock %}
+        </div>
+    </div>
+
+
+</body>
+<script src="{% static 'ticketSales/js/jquery-3.6.0.min.js' % }"></script>
+<script src="{% static 'ticketSales/js/bootstrap.bundle.js' % }"></script>
+<script src="{% static 'ticketSales/js/fontawesome.js' % }"></script>
+<script src="{% static 'ticketSales/js/main.js' % }"></script>
+
+</html>
